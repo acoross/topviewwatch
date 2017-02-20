@@ -1,0 +1,3 @@
+[submodule "server/Acoross.Network.Rpc"]
+	path = server/Acoross.Network.Rpc
+	url = https://github.com/acoross/Acoross.Network.Rpc/

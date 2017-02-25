@@ -1,0 +1,37 @@
+{
+  "namespace": "Acoross.tw.Rpc",
+  "dependencies": [],
+  "enums": {
+  },
+  "types": {
+    "vec2": {
+      "x": "float",
+      "y": "float"
+    },
+    "LoginReq": {
+      "id": "string",
+      "pwd": "string"
+    },
+    "DashReq": {
+      "orgPos": "vec2",
+      "dir": "vec2",
+      "speed": "float",
+      "actionTime": "float",
+      "effectCount": "int"
+    }
+  },
+  "rpc": {
+    "Login": {
+      "req": "LoginReq",
+      "res": "bool"
+    },
+    "Dash": {
+      "req": "DashReq",
+      "res": "bool"
+    }
+  },
+  "noti": {
+    "NotiPosSync": "vec2",
+    "NotiDashEnd": "vec2"
+  }
+}

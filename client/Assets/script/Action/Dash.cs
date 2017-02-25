@@ -34,14 +34,19 @@ public class Dash : MonoBehaviour {
         moving = true;
         movingDirection = transform.TransformVector(Vector3.right);
 
+        var sock = GetComponent<MySocket>();
+        sock.Dash(movingDirection, speed, actionTime, effect_count);
+
         int count = 0;
-        while (count < effect_count) {
+        while (count < effect_count)
+        {
             moveAccumTime += Time.deltaTime;
-            if (moveAccumTime > actionTime) {
+            if (moveAccumTime > actionTime)
+            {
                 var moveEffect = GameObject.Instantiate(movePrefab);
                 moveEffect.transform.position = transform.position;
 
-                moveAccumTime -= 0.1f;
+                moveAccumTime -= actionTime;
                 count++;
             }
 
@@ -49,6 +54,11 @@ public class Dash : MonoBehaviour {
             yield return null;
         }
 
+        //DashEnd();
+    }
+
+    public void DashEnd()
+    {
         moveAccumTime = 0f;
         moving = false;
     }

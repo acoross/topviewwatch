@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{17EA4D5C-B45C-42AC-91D6-7D822DE96AB9}</ProjectGuid>
+    <ProjectGuid>{CC31A964-BF85-4254-872D-1BD0519B18DD}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>tw_server</RootNamespace>
-    <AssemblyName>tw_server</AssemblyName>
+    <RootNamespace>test_game</RootNamespace>
+    <AssemblyName>test_game</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,7 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Threading.Tasks.Dataflow, Version=4.6.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>packages\System.Threading.Tasks.Dataflow.4.7.0\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
+      <HintPath>..\packages\System.Threading.Tasks.Dataflow.4.7.0\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,17 +43,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine">
-      <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\protocol\topviewwatch.rpc.cs">
-      <Link>topviewwatch.rpc.cs</Link>
-    </Compile>
-    <Compile Include="..\protocol\topviewwatch.rpc.server.cs">
-      <Link>topviewwatch.rpc.server.cs</Link>
-    </Compile>
+    <Compile Include="FireObject.cs" />
     <Compile Include="PlayerObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,11 +55,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Acoross.Network.Rpc\Rpc\Acoross.Network.Rpc.Net\Acoross.Network.Rpc.Net.csproj">
-      <Project>{57b0205e-3765-408e-8e02-2487f552dca2}</Project>
-      <Name>Acoross.Network.Rpc.Net</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\game\game.csproj">
+    <ProjectReference Include="..\..\game\game.csproj">
       <Project>{8058a3f8-d911-4987-a13c-0bbca1b01582}</Project>
       <Name>game</Name>
     </ProjectReference>

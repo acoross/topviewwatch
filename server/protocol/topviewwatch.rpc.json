@@ -18,6 +18,14 @@
       "speed": "float",
       "actionTime": "float",
       "effectCount": "int"
+    },
+    "DashBroadcast": {
+      "id": "string",
+      "orgPos": "vec2",
+      "dir": "vec2",
+      "speed": "float",
+      "actionTime": "float",
+      "effectCount": "int"
     }
   },
   "rpc": {
@@ -32,6 +40,7 @@
   },
   "noti": {
     "NotiPosSync": "vec2",
-    "NotiDashEnd": "vec2"
+    "NotiDashEnd": "vec2",
+    "BroadcastDash": "DashBroadcast"
   }
 }

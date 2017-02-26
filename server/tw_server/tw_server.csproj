@@ -54,6 +54,7 @@
     <Compile Include="..\protocol\topviewwatch.rpc.server.cs">
       <Link>topviewwatch.rpc.server.cs</Link>
     </Compile>
+    <Compile Include="Board.cs" />
     <Compile Include="PlayerObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

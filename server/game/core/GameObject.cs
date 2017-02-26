@@ -1,16 +1,33 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Threading.Tasks;
 
 namespace tw_server
 {
     public abstract class GameObject
     {
         public string name = "";
-        protected Game game;
+        Game game;
         public Transform transform = new Transform();
+
+        protected float deltaTime
+        {
+            get
+            {
+                return game.deltaTime;
+            }
+        }
+
 
         public GameObject(Game game)
         {
             this.game = game;
+        }
+        
+        public GameObjectT Instantiate<GameObjectT>(Func<Game, GameObjectT> maker)
+            where GameObjectT : GameObject
+        {
+            return game.Instantiate<GameObjectT>(maker);
         }
 
         /// <summary>

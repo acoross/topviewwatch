@@ -31,11 +31,9 @@ namespace tw_server
 
         public override Task<bool> Login(LoginReq req)
         {
-            pobj = new PlayerObject(game, this);
-            pobj.name = req.id;
-            game.Invoke(() =>
+            pobj = game.Instantiate<PlayerObject>((game) =>
             {
-                game.Register(pobj);
+                return new PlayerObject(game, this, req.id);
             });
 
             Console.WriteLine($"login: {req.id}");

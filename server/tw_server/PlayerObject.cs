@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Threading.Tasks;
 
 using C = System.Console;
 
@@ -12,9 +13,10 @@ namespace tw_server
         Vector2 movingDirection = Vector2.zero;
         TWSession session = null;
 
-        public PlayerObject(Game game, TWSession session) : base(game)
+        public PlayerObject(Game game, TWSession session, string name) : base(game)
         {
             this.session = session;
+            this.name = name;
         }
 
         public override void OnTick(float deltaTime)
@@ -33,10 +35,10 @@ namespace tw_server
             int count = 0;
             while (count < effect_count)
             {
-                transform.Translate(movingDirection * speed * game.deltaTime, Space.World);
+                transform.Translate(movingDirection * speed * deltaTime, Space.World);
                 C.WriteLine($"dash: {transform.position.x}, {transform.position.y}");
 
-                moveAccumTime += game.deltaTime;
+                moveAccumTime += deltaTime;
                 if (moveAccumTime > actionTime)
                 {
                     moveAccumTime -= actionTime;

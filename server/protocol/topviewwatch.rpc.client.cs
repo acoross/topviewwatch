@@ -16,6 +16,7 @@ namespace Acoross.tw.Rpc
     {
         Task NotiPosSync(vec2 message);
         Task NotiDashEnd(vec2 message);
+        Task BroadcastDash(DashBroadcast message);
     }
 
     abstract class RpcClient : RpcClientBase, Rpc, Noti
@@ -24,6 +25,7 @@ namespace Acoross.tw.Rpc
         {
             TryRegisterNoti<vec2>((int)NotiTypes.NotiPosSync, NotiPosSync);
             TryRegisterNoti<vec2>((int)NotiTypes.NotiDashEnd, NotiDashEnd);
+            TryRegisterNoti<DashBroadcast>((int)NotiTypes.BroadcastDash, BroadcastDash);
         }
 
         public async Task<bool> Login(LoginReq req)
@@ -38,5 +40,6 @@ namespace Acoross.tw.Rpc
 
         public abstract Task NotiPosSync(vec2 message);
         public abstract Task NotiDashEnd(vec2 message);
+        public abstract Task BroadcastDash(DashBroadcast message);
     }
 }

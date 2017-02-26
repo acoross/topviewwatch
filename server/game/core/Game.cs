@@ -34,15 +34,23 @@ namespace tw_server
         ConcurrentDictionary<string, GameObject> objects = new ConcurrentDictionary<string, GameObject>();
         ConcurrentDictionary<string, CoroutineBox> coroutines = new ConcurrentDictionary<string, CoroutineBox>();
 
-        public Task Invoke(Action job)
+        public void Invoke(Action job)
         {
-            return invoker.SendAsync(job);
+            invoker.SendAsync(job);
         }
 
-        public void Register(GameObject obj)
+        void Register(GameObject obj)
         {
             objects.TryAdd(obj.name, obj);
             coroutines.TryAdd(obj.name, new CoroutineBox());
+        }
+
+        public GameObjectT Instantiate<GameObjectT>(Func<Game, GameObjectT> maker)
+            where GameObjectT : GameObject
+        {
+            var obj = maker(this);
+            Register(obj);
+            return obj;
         }
 
         public void Remove(GameObject obj)

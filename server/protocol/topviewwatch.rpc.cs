@@ -15,7 +15,8 @@ namespace Acoross.tw.Rpc
     public enum NotiTypes : int
     {
         NotiPosSync, 
-        NotiDashEnd
+        NotiDashEnd, 
+        BroadcastDash
     }
 
 
@@ -40,6 +41,16 @@ namespace Acoross.tw.Rpc
         public int effectCount { get; set; }
     }
 
+    public class DashBroadcast
+    {
+        public string id { get; set; }
+        public vec2 orgPos { get; set; }
+        public vec2 dir { get; set; }
+        public float speed { get; set; }
+        public float actionTime { get; set; }
+        public int effectCount { get; set; }
+    }
+
     /*
     interface Rpc
     {
@@ -51,6 +62,7 @@ namespace Acoross.tw.Rpc
     {
         Task NotiPosSync(vec2 message);
         Task NotiDashEnd(vec2 message);
+        Task BroadcastDash(DashBroadcast message);
     }
     */
 }

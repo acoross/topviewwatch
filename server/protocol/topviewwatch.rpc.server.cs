@@ -17,6 +17,7 @@ namespace Acoross.tw.Rpc
     {
         Task NotiPosSync(vec2 message);
         Task NotiDashEnd(vec2 message);
+        Task BroadcastDash(DashBroadcast message);
     }
 
     abstract class RpcSession : RpcSessionBase, Rpc, Noti
@@ -38,6 +39,11 @@ namespace Acoross.tw.Rpc
         public Task NotiDashEnd(vec2 message)
         {
             return Noti((int)NotiTypes.NotiDashEnd, message);
+        }
+
+        public Task BroadcastDash(DashBroadcast message)
+        {
+            return Noti((int)NotiTypes.BroadcastDash, message);
         }
     }
 }
